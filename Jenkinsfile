@@ -1,6 +1,9 @@
 podTemplate(yaml: '''
     apiVersion: v1
     kind: Pod
+    metadata:
+     name: kaniko-maven
+     namespace: jenkins
     spec:
       containers:
       - name: maven
