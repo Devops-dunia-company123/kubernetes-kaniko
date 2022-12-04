@@ -4,17 +4,12 @@ podTemplate(yaml: '''
     spec:
       containers:
       - name: maven
-        image: maven:3.8.1-jdk-8
-        command:
-        - sleep
-        args:
-        - 99d
+        image: maven:3.8.6-openjdk-18 
       - name: kaniko
         image: gcr.io/kaniko-project/executor:debug-539ddefcae3fd6b411a95982a830d987f4214251
         volumeMounts:
         - name: kaniko-secret
           mountPath: /kaniko/.docker
-      restartPolicy: Never
       volumes:
       - name: kaniko-secret
         secret:
