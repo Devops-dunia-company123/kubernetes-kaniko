@@ -28,7 +28,7 @@ podTemplate(yaml: '''
 ''') {
   node(POD_LABEL) {
     stage('Get a Maven project') {
-      git url: 'https://github.com/scriptcamp/kubernetes-kaniko.git', branch: 'main'
+      git url: 'https://github.com/Devops-dunia-company123/kubernetes-kaniko', branch: 'main'
       container('maven') {
         stage('Build a Maven project') {
           sh '''
