@@ -10,11 +10,7 @@ podTemplate(yaml: '''
         args:
         - 99d
       - name: kaniko
-        image: gcr.io/kaniko-project/executor:debug
-        command:
-        - sleep
-        args:
-        - 9999999
+        image: gcr.io/kaniko-project/executor:debug-539ddefcae3fd6b411a95982a830d987f4214251
         volumeMounts:
         - name: kaniko-secret
           mountPath: /kaniko/.docker
@@ -43,7 +39,7 @@ podTemplate(yaml: '''
       container('kaniko') {
         stage('Build a Go project') {
           sh '''
-            /kaniko/executor --context `pwd` --destination bibinwilson/hello-kaniko:1.0
+            /kaniko/executor --context `pwd` --destination dunialk/hello-kaniko:1.0
           '''
         }
       }
