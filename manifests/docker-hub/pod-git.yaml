@@ -1,14 +1,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: kaniko
+  name: kaniko-maven
+  namespace: jenkins
 spec:
   containers:
   - name: kaniko
-    image: gcr.io/kaniko-project/executor:latest
+    image: gcr.io/kaniko-project/executor:debug-539ddefcae3fd6b411a95982a830d987f4214251
     args:
     - "--context=git://github.com/scriptcamp/kubernetes-kaniko"
-    - "--destination=bibinwilson/kaniko-test-image:1.0"
+    - "--destination=duniaalk/kaniko-test-image:1.0"
     volumeMounts:
     - name: kaniko-secret
       mountPath: /kaniko/.docker
