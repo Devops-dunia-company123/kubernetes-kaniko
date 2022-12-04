@@ -10,9 +10,9 @@ pipeline {
     }
   }
     
-  stages {
+ 
       
-    stage('Get a Maven project') {
+  stage('Get a Maven project') {
       git url: 'https://github.com/Devops-dunia-company123/kubernetes-kaniko', branch: 'main'
       container('maven') {
         stage('Build a Maven project') {
@@ -34,4 +34,4 @@ pipeline {
     }
 
   }
-}
+
